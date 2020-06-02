@@ -412,9 +412,10 @@ class SpaceRoboticsChallengeRound3(SpaceRoboticsChallenge):
                         
                         
         
-    def on_scan(self, timestamp, data):
-        assert len(data) == 180
-        super().on_scan(timestamp, data)
+    def on_scan(self):
+        assert len(self.scan) == 180
+#        super().on_scan()
+        data = self.scan
 
 
         if self.last_attempt_timestamp is not None and self.time - self.last_attempt_timestamp < ATTEMPT_DELAY:

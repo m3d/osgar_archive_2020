@@ -9,8 +9,8 @@ class SpaceRoboticsChallengeRound1(SpaceRoboticsChallenge):
     def __init__(self, config, bus):
         super().__init__(config, bus)
 
-    def on_object_reached(self, timestamp, data):
-        object_type = data
+    def on_object_reached(self):
+        object_type = self.object_reached
         x,y,z = self.xyz
         print(self.time, "app: Object %s reached" % object_type)
         response = self.send_request('artf %s %f %f 0.0\n' % (object_type, x, y)).decode("ascii") 
